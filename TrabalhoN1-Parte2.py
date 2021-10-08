@@ -81,22 +81,42 @@ def main():
     opcaoDoPrograma = 0
     while(opcaoDoPrograma >= 0 and opcaoDoPrograma <= 5):   #Laço de Repetição Principal da função
         telaDeSelecao()
-
+        
         #Evitando erros de digitação no código, para se usar apenas opções válidas
         try:
             opcaoDoPrograma = int(input())  
         except:
             print("\n---------Você deve digitar um número para selecionar uma opção!!!!---------\n")
             continue
-
+        
+        #Seleção da opção apropriada, chamando cada função conforme o desejado 
         if(opcaoDoPrograma == 1):
             print("\n-----------------------///-----------------------\n")
             cadastrandoNovoUsuario()
+
         elif(opcaoDoPrograma == 2):
-            print("2")
+            listarPorOrdemOuPorAlpha = 0
+            #Laço para tratamento de erros de Digitação:
+            while listarPorOrdemOuPorAlpha <=0 or listarPorOrdemOuPorAlpha >=3:
+                print("[1] Listagem por ordem de Cadastro")
+                print("[2] Listagem por ordem Alfabética")
+
+                try:   #Tratamento de Erros
+                    listarPorOrdemOuPorAlpha = int(input())
+                except:
+                    print("-------//-Informe uma tarefa válida!-//-------")
+                    continue
+                #Seleção da função conforme o Desejado
+                if listarPorOrdemOuPorAlpha == 1:
+                    print("\n-----------------------///-----------------------\n")
+                    listandoUsuario()
+                elif listarPorOrdemOuPorAlpha == 2:
+                    print("\n-----------------------///-----------------------\n")
+                    listandoUsuarioPorAlpha()
+
         elif(opcaoDoPrograma == 3):
             print("\n-----------------------///-----------------------\n")
-            verificandoUsuario(input("Informe um nome para buscar na lista: ")).title()
+            verificandoUsuario(input("Informe um nome para buscar na lista: ").title())
         elif(opcaoDoPrograma == 4):
             print("\n-----------------------///-----------------------\n")
             removendoUsuario(input("Informe o e-mail do usuário a ser removido: "))
@@ -108,7 +128,7 @@ def main():
             print("-------//-Informe uma tarefa válida!-//-------")
             opcaoDoPrograma = 0
             continue
-    print("-------//-Fim da Aplicação-//-------") 
-
+    print("-------//-Fim da Aplicação-//-------")         
+#Início de programa
 if __name__ == "__main__":
     main()

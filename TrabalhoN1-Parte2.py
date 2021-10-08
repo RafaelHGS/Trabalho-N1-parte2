@@ -15,19 +15,32 @@ def telaDeSelecao():
 
 def cadastrandoNovoUsuario():   #Definindo Função: H1.: Como gestor do sistema gostaria de cadastrar novos usuários pelo seu nome completo e e-mail.
     cadastroDeUsuario = {}
-    cadastroDeUsuario["nome"] = input("Informe o nome do Usuario: ")
+    cadastroDeUsuario["nome"] = input("Informe o nome do Usuario: ").title()
     cadastroDeUsuario["e-mail"] = input("Informe o e-mail do Usuário:")
     usuariosEmAlfabetico.append('Nome do Usuário: ' + cadastroDeUsuario["nome"] + " \t///\t E-mail: " + cadastroDeUsuario["e-mail"])
     usuariosCadastrados.append(cadastroDeUsuario)
     print("Usuario cadastrado!\n")
     print("-----------------------///-----------------------\n")
+    
+def listandoUsuario():   # H2.: Como gestor do sistema gostaria de exibir todos os usuários cadastrados, listando-os por ordem de cadastro.
+    print("Nº  //\t\tUsuário\t\t///\t\t E-mail Do Usuário\n\n")
+    for numeracao,usuariosPorOrdemChegada in enumerate(usuariosCadastrados):
+        print(f'{numeracao} - Nome do Usuário: {usuariosPorOrdemChegada["nome"]} \t///\t E-mail: {usuariosPorOrdemChegada["e-mail"]}')
+    print("\n\n-----------------------///-----------------------\n")
+
+def listandoUsuarioPorAlpha():   # H3.: Como gestor do sistema gostaria de exibir todos os usuários cadastros, listando-os por ordem alfabética.
+    print("Nº  //\t\tUsuário\t\t///\t\t E-mail Do Usuário\n\n")
+    usuarioAlfabetico = sorted(usuariosEmAlfabetico)
+    for numeracao, usuarioNaOrdemAlpha in enumerate(usuarioAlfabetico):
+        print(numeracao, "-", usuarioNaOrdemAlpha)
+    print("\n\n-----------------------///-----------------------\n")
 
 def verificandoUsuario(nome):   #H4.: Como gestor do sistema gostaria de verificar se um usuário faz parte da lista de participantes, buscando-o pelo seu nome.
     print(f"Usuários Localizados com o nome {nome}")
-    print("----//\t\tUsuário\t\t///\t\t E-mail Do Usuário")
+    print("----//\t\tUsuário\t\t///\t\t E-mail Do Usuário\n")
     for usuario in usuariosCadastrados:
         if nome == usuario["nome"]:
-            print(f'Nome do Usuário: {usuario["nome"]} \t//\t E-mail: {usuario["e-mail"]}')
+            print(f'Nome do Usuário: {usuario["nome"]} \t//\t E-mail: {usuario["e-mail"]}\n')
 
 def removendoUsuario(email):   #H5.: Como gestor do sistema gostaria poder remover um usuário cadastrado, buscando-o por seu e-mail.
     for buscandoUsuario in usuariosCadastrados:
@@ -47,7 +60,7 @@ def removendoUsuario(email):   #H5.: Como gestor do sistema gostaria poder remov
 def alterarUsuario(email):   #H6.: Como gestor do sistema gostaria de poder alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.
     for localiza in usuariosCadastrados:
         if email == localiza["e-mail"]:
-            novoNome = input("Digite o novo nome do Usuario: ")
+            novoNome = input("Digite o novo nome do Usuario: ").title()
             localiza["nome"] = novoNome
     for localiza in usuariosEmAlfabetico:
         palavraSeparada = localiza.split(" ")
@@ -55,7 +68,7 @@ def alterarUsuario(email):   #H6.: Como gestor do sistema gostaria de poder alte
             usuariosEmAlfabetico.remove(localiza)
             novoNomeDeUsuario = palavraSeparada
             novoNomeDeUsuario[3] = novoNome
-            novoNomeDeUsuario = "Nome do Usuário: " + novoNomeDeUsuario[3] + " \t//\t E-mail: " + novoNomeDeUsuario[6]
+            novoNomeDeUsuario = "Nome do Usuário: " + novoNomeDeUsuario[3] + " \t///\t E-mail: " + novoNomeDeUsuario[6]
             usuariosEmAlfabetico.append(novoNomeDeUsuario)
             print(f'---------O nome de usuário de Email "{email}" foi alterado para {novoNome}---------')
             print("\n-----------------------///-----------------------\n")
@@ -83,13 +96,18 @@ def main():
             print("2")
         elif(opcaoDoPrograma == 3):
             print("\n-----------------------///-----------------------\n")
-            verificandoUsuario(input("Informe um nome para buscar na lista: "))
+            verificandoUsuario(input("Informe um nome para buscar na lista: ")).title()
         elif(opcaoDoPrograma == 4):
             print("\n-----------------------///-----------------------\n")
             removendoUsuario(input("Informe o e-mail do usuário a ser removido: "))
         elif(opcaoDoPrograma == 5):
             print("\n-----------------------///-----------------------\n")
             alterarUsuario(input("Informe o e-mail do usuário para alterar o seu nome: "))
+        elif(opcaoDoPrograma != 6):
+            print("\n-----------------------///-----------------------\n")
+            print("-------//-Informe uma tarefa válida!-//-------")
+            opcaoDoPrograma = 0
+            continue
     print("-------//-Fim da Aplicação-//-------") 
 
 if __name__ == "__main__":

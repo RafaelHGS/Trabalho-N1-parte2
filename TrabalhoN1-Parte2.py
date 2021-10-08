@@ -1,3 +1,13 @@
+'''
+    Técnicas de Programação
+-Atividade N1 - Parte 2
+
+Nome:   Gabriel de Souza Alves              RA: 21587787
+Nome:   Gustavo Mello Soares dos Santos     RA: 21568663
+Nome:   Rafael Henrique Gonçalves Soares    RA: 21566288
+
+'''
+
 #Criação de Variáveis/Listas Globais
 usuariosCadastrados = []
 usuariosEmAlfabetico = []
@@ -125,7 +135,7 @@ def main():
             alterarUsuario(input("Informe o e-mail do usuário para alterar o seu nome: "))
         elif(opcaoDoPrograma != 6):
             print("\n-----------------------///-----------------------\n")
-            print("-------//-Informe uma tarefa válida!-//-------")
+            print("\n-------//-Informe uma tarefa válida!-//-------\n")
             opcaoDoPrograma = 0
             continue
     print("-------//-Fim da Aplicação-//-------")         

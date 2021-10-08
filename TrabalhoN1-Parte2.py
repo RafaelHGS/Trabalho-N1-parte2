@@ -85,9 +85,11 @@ def main():
             print("\n-----------------------///-----------------------\n")
             verificandoUsuario(input("Informe um nome para buscar na lista: "))
         elif(opcaoDoPrograma == 4):
-            print("4")
+            print("\n-----------------------///-----------------------\n")
+            removendoUsuario(input("Informe o e-mail do usuário a ser removido: "))
         elif(opcaoDoPrograma == 5):
-            print("5")
+            print("\n-----------------------///-----------------------\n")
+            alterarUsuario(input("Informe o e-mail do usuário para alterar o seu nome: "))
     print("-------//-Fim da Aplicação-//-------") 
 
 if __name__ == "__main__":

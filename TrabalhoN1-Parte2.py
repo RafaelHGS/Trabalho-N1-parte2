@@ -8,7 +8,7 @@ def telaDeSelecao():
     print("Seleciona uma opção:")
     print("[1] Cadastrar Novo Usuário")
     print("[2] Listar Usuários.")
-    print("[3] Listar Usuários por Nome de Usuário")
+    print("[3] Buscar Usuários por Nome")
     print("[4] Remover Usuário")
     print("[5] Alterar Nome de Usuário.") 
     print("[6] Para encerrar o programa")
@@ -16,7 +16,7 @@ def telaDeSelecao():
 def cadastrandoNovoUsuario():   #Definindo Função: H1.: Como gestor do sistema gostaria de cadastrar novos usuários pelo seu nome completo e e-mail.
     cadastroDeUsuario = {}
     cadastroDeUsuario["nome"] = input("Informe o nome do Usuario: ").title()
-    cadastroDeUsuario["e-mail"] = input("Informe o e-mail do Usuário:")
+    cadastroDeUsuario["e-mail"] = input("Informe o e-mail do Usuário: ")
     usuariosEmAlfabetico.append('Nome do Usuário: ' + cadastroDeUsuario["nome"] + " \t///\t E-mail: " + cadastroDeUsuario["e-mail"])
     usuariosCadastrados.append(cadastroDeUsuario)
     print("Usuario cadastrado!\n")
